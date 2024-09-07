@@ -47,7 +47,9 @@ Aqui estão as imagens usadas no jogo:
     <td><img src="img/img9.png" alt="Imagem 9" width="100"></td>
     <td><img src="img/img10.png" alt="Imagem 10" width="100"></td>
   </tr>
-
+  <tr>
+    <td><img src="img/img11.png" alt="Imagem 11" width="100"></td>
+  </tr>
 </table>
 
 ## Contribuição

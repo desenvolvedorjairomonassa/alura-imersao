@@ -41,6 +41,7 @@ Aqui estão as imagens usadas no jogo:
 ![Imagem 7](img/img7.png)
 ![Imagem 8](img/img8.png)
 ![Imagem 9](img/img9.png)
+![Imagem 10](img/img10.png)
 
 ## Contribuição
 

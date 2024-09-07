@@ -10,7 +10,7 @@ Bem-vindo ao Jogo de Memória Olímpico! Este é um jogo de memória simples ond
 - [Tecnologias Utilizadas](#tecnologias-utilizadas)
 - [Rascunhos](#rascunhos)
 - [Contribuição](#contribuição)
-- [Licença](#licença)
+
 
 ## Visão Geral
 

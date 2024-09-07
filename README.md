@@ -32,16 +32,23 @@ Este projeto é um jogo de memória onde o jogador precisa encontrar pares de ca
 
 Aqui estão as imagens usadas no jogo:
 
-![Imagem 1](img/img1.png)
-![Imagem 2](img/img2.png)
-![Imagem 3](img/img3.png)
-![Imagem 4](img/img4.png)
-![Imagem 5](img/img5.png)
-![Imagem 6](img/img6.png)
-![Imagem 7](img/img7.png)
-![Imagem 8](img/img8.png)
-![Imagem 9](img/img9.png)
-![Imagem 10](img/img10.png)
+<table>
+  <tr>
+    <td><img src="img/img1.png" alt="Imagem 1" width="100"></td>
+    <td><img src="img/img2.png" alt="Imagem 2" width="100"></td>
+    <td><img src="img/img3.png" alt="Imagem 3" width="100"></td>
+    <td><img src="img/img4.png" alt="Imagem 4" width="100"></td>
+    <td><img src="img/img5.png" alt="Imagem 5" width="100"></td>
+  </tr>
+  <tr>
+    <td><img src="img/img6.png" alt="Imagem 6" width="100"></td>
+    <td><img src="img/img7.png" alt="Imagem 7" width="100"></td>
+    <td><img src="img/img8.png" alt="Imagem 8" width="100"></td>
+    <td><img src="img/img9.png" alt="Imagem 9" width="100"></td>
+    <td><img src="img/img10.png" alt="Imagem 10" width="100"></td>
+  </tr>
+
+</table>
 
 ## Contribuição
 

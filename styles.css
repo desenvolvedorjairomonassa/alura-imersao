@@ -1,0 +1,69 @@
+body {
+    /* background-image: url('img/background.jpg'); /* Substitua por seu caminho de imagem */
+    /* background-size: cover; /* Faz a imagem cobrir toda a área */
+    /* background-repeat: no-repeat; /* Impede que a imagem se repita */
+    /* background-attachment: fixed; /* Faz com que o fundo permaneça fixo enquanto rola a página */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f7d193;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    width: 100px;
+    height: 100px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.card img {
+    max-width: 100%;
+    max-height: 100%;
+    visibility: hidden;
+}
+
+.card.flipped img {
+    visibility: visible;
+}
+
+.card.hidden {
+    visibility: hidden;
+}
+
+#shuffleButton, #revealButton {
+    background-color: #4CAF50; /* Cor de fundo verde */
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 10px; /* Cria cantos arredondados */
+    border: none;
+    margin-bottom: 20px;
+}

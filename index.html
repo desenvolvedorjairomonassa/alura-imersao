@@ -8,11 +8,20 @@
 </head>
 <body>
     <h1>Jogo da memória - baseado nos jogos olímpicos</h1>
-    <div class="game-board" id="gameBoard">
-        <!-- As cartas serão adicionadas aqui dinamicamente -->
+    <div class="game-container">
+        <div class="game-board" id="gameBoard">
+            <!-- As cartas serão adicionadas aqui dinamicamente -->
+        </div>
+        <div class="scoreboard">
+            <h2>Placar</h2>
+            <p>Tentativas: <span id="attempts">0</span></p>
+            <p>Porcentagem de Acertos: <span id="accuracy">0%</span></p>
+        </div>
+        <div class="buttons">
+            <button id="shuffleButton">Embaralhar Novamente</button>
+            <button id="revealButton">Revelar Todas as Cartas</button>
+        </div>
     </div>
-    <button id="shuffleButton">Embaralhar Novamente</button>
-    <button id="revealButton">Revelar Todas as Cartas</button>
     <script src="script.js"></script>
     <script src="data.js"></script>
 </body>

@@ -4,9 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const tabuleiro = document.getElementById('gameBoard'); // Obtém o elemento HTML com o ID "gameBoard" (tabuleiro do jogo).
     const botaoEmbaralhar = document.getElementById('shuffleButton'); // Obtém o botão para embaralhar as cartas.
     const botaoRevelar = document.getElementById('revealButton'); // Obtém o botão para revelar todas as cartas.
-    const cartas = dadosCartas; // Obtém os dados das cartas de um array externo (dadosCartas).
-  
+    const tentativasElemento = document.getElementById('attempts');
+    const precisaoElemento = document.getElementById('accuracy');
+    let cartas = [];
+
     let cartasViradas = []; // Array para armazenar as cartas que estão viradas.
+    let tentativas = 0;
+    let acertos = 0;
+    //cartas += dadosCartas;
     console.log(cartas)
     // Função para embaralhar um array usando o algoritmo Fisher-Yates.
     function embaralhar(array) {
@@ -21,9 +26,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const elementoCarta = document.createElement('div'); // Cria um novo elemento div para representar a carta.
       elementoCarta.classList.add('card'); // Adiciona a classe "card" para estilização.
       elementoCarta.dataset.id = carta.id; // Armazena o ID da carta em um atributo de dados.
-      const elementoImagem = document.createElement('img'); // Cria um elemento img para a imagem da carta.
-      elementoImagem.src = carta.src; // Define o caminho da imagem da carta.
-      elementoCarta.appendChild(elementoImagem); // Adiciona a imagem à carta.
+
+      const elementoImagemFrente = document.createElement('img'); // Cria um elemento img para a imagem da carta.
+      elementoImagemFrente.src = carta.src; // Define o caminho da imagem da carta.
+      elementoImagemFrente.classList.add('front');
+
+      const elementoImagemVerso = document.createElement('img');
+      elementoImagemVerso.src = 'img/reverso.png'; // Caminho para a imagem de reverso
+      elementoImagemVerso.classList.add('back');
+
+      elementoCarta.appendChild(elementoImagemFrente); // Adiciona a imagem à carta.
+      elementoCarta.appendChild(elementoImagemVerso);
       elementoCarta.addEventListener('click', virarCarta); // Adiciona um ouvinte de evento para quando a carta for clicada.
       return elementoCarta; // Retorna o elemento da carta criado.
     }
@@ -38,6 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
       cartasViradas.push(this); // Adiciona a carta ao array de cartas viradas.
   
       if (cartasViradas.length === 2) {
+        //soma as tentativas de erros
+        tentativas++;
+        tentativasElemento.textContent = tentativas;
         // Se duas cartas estão viradas, verifica se são iguais após 500ms.
         setTimeout(verificarCorrespondencia, 500);
       }
@@ -47,23 +63,37 @@ document.addEventListener('DOMContentLoaded', () => {
     function verificarCorrespondencia() {
       const [carta1, carta2] = cartasViradas; // Obtém as duas cartas viradas.
       if (carta1.dataset.id === carta2.dataset.id) { // Se as cartas são iguais
-        carta1.classList.add('hidden'); // Marca as cartas como escondidas.
-        carta2.classList.add('hidden');
+        carta1.classList.add('matched');
+        carta2.classList.add('matched');
+        acertos++; // contagem de acertos
       } else { // Se as cartas são diferentes
         carta1.classList.remove('flipped'); // Desvira as cartas.
         carta2.classList.remove('flipped');
       }
       cartasViradas = []; // Limpa o array de cartas viradas.
+      atualizarPrecisao();
     }
-  
+    function atualizarPrecisao() {
+      const precisao = (acertos / tentativas) * 100 || 0;
+      precisaoElemento.textContent = precisao.toFixed(2) + '%';
+    }
+    function duplicarCartas(array) {
+      return array.concat(array);
+    }
+
     // Função para reiniciar o jogo.
     function reiniciarJogo() {
       tabuleiro.innerHTML = ''; // Limpa o tabuleiro.
+      cartas = duplicarCartas(dadosCartas); // Obtém os dados das cartas de um array externo (dadosCartas).
       embaralhar(cartas); // Embaralha as cartas.
       cartas.forEach(carta => {
         const elementoCarta = criarCarta(carta); // Cria um elemento de carta para cada carta.
         tabuleiro.appendChild(elementoCarta); // Adiciona a carta ao tabuleiro.
       });
+      tentativas = 0;
+      acertos = 0;
+      tentativasElemento.textContent = tentativas;
+      precisaoElemento.textContent = '0%';
     }
   
     // Função para revelar todas as cartas.

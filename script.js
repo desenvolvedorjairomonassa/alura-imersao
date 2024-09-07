@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartas = dadosCartas; // Obtém os dados das cartas de um array externo (dadosCartas).
   
     let cartasViradas = []; // Array para armazenar as cartas que estão viradas.
-  
+    console.log(cartas)
     // Função para embaralhar um array usando o algoritmo Fisher-Yates.
     function embaralhar(array) {
       for (let i = array.length - 1; i > 0; i--) {
